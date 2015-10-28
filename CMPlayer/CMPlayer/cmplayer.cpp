@@ -135,9 +135,9 @@ void CMPlayer::openFile()
 
 	//string strFileName(qtu(fileOpen));
 	string strFileName((const char *)fileOpen.toLocal8Bit());
-
+	fileOpen.replace("/", "\\");
 	/* Create a new Media */
-	libvlc_media_t *vlcMedia = libvlc_media_new_path(pvlcInstance, strFileName.c_str());
+	libvlc_media_t *vlcMedia = libvlc_media_new_path(pvlcInstance, qtu(fileOpen));
 	
 	if (!vlcMedia)
 		return;
