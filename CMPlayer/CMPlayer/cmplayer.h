@@ -14,16 +14,16 @@ public:
 	~CMPlayer();
 
 private slots:
-	void openFile();
-	void play();
-	void stop();
-	void mute();
-	void about();
-	void fullscreen();
+	void SlotOpenFile();
+	void SlotPlay();
+	void SlotStop();
+	void SlotMute();
+	void SlotAbout();
+	void SlotFullScreen();
 
-	int changeVolume(int);
-	void changePosition(int);
-	void updateInterface();
+	int  SlotChangeVolume(int);
+	void SlotChangePosition(int);
+	void SlotUpdateInterface();
 
 protected:
 	virtual void closeEvent(QCloseEvent*);
@@ -32,13 +32,13 @@ private:
 	void initUI();
 
 private:
-	QPushButton *playBut;
+	QPushButton *m_pBtnPlay;
 	QSlider *volumeSlider;
 	QSlider *slider;
 	QWidget *videoWidget;
 
-	libvlc_instance_t *pvlcInstance;
-	libvlc_media_player_t *vlcPlayer;
+	libvlc_instance_t *m_pvlcInstance;
+	libvlc_media_player_t *m_vlcPlayer;
 };
 
 #endif // CMPLAYER_H
